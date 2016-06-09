@@ -1,0 +1,57 @@
+<div class="page-header">
+  <%= link_to contestants_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_contestant_path( @contestant ), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <%= link_to @contestant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do %>
+    <span class="glyphicon glyphicon-trash"></span>
+    Destroy
+  <% end %>
+  <h1>Teilnehmer</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name</dt>
+  <dd><%= @contestant.name %></dd>
+
+  <dt>Nummer</dt>
+  <dd><%= @contestant.number %></dd>
+
+  <dt>Kategorie</dt>
+  <dd><%= @contestant.category %></dd>
+  
+  <dt>Rang</dt>
+  <dd><%= @contestant.ranking %></dd>
+</dl>
+
+
+<div class="page-header">
+  <h2>Wertungen</h2>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Wertungsrichter</th>
+      <th>Wertung</th>
+      <th>Datum/Uhrzeit</th>
+  </thead>
+  <tbody>
+    <%= content_tag_for( :tr, @contestant.scores ) do |score| %>
+      <td><%= score.judge %></td>
+      <td><%= score.value %></td>
+      <td><%= score.created_at %></td>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>Durchschnitt</th>
+      <th><%= @contestant.score %></td>
+      <th></th>
+    </tr>
+  </tfoot>
+</table>

@@ -1,0 +1,30 @@
+<div class="page-header">
+  <%= link_to new_contestant_path, class: 'btn btn-success' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+  <% end %>
+  <h1>Teilnehmer</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nummer</th>
+        <th>Name</th>
+        <th>Wertungen</th>
+        <th>Durchschnitt</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @contestants.each do |contestant| %>
+        <tr data-link="<%= contestant_url( contestant ) %>">
+          <td><%= contestant.number %></td>
+          <td><%= contestant.name %></td>
+          <td style="text-align: right;"><%= contestant.scores.count %></td>
+          <td style="text-align: right;"><%= contestant.score %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

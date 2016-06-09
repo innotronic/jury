@@ -1,0 +1,22 @@
+<div class="page-header">
+  <%= link_to scores_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_score_path(@score), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Wertung</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Contestant:</dt>
+  <dd><%= @score.contestant %></dd>
+
+  <dt>Judge:</dt>
+  <dd><%= @score.judge %></dd>
+
+  <dt>Value:</dt>
+  <dd><%= @score.value %></dd>
+</dl>

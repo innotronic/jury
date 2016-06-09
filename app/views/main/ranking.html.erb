@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>Rangliste</h1>
+</div>
+
+<% @categories.each do |category| %>
+
+  <h2><%= category.name %></h2>
+  
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Rang</th>
+          <th>Nummer</th>
+          <th>Name</th>
+          <th>Wertungen</th>
+          <th>Durchschnitt</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <%= content_tag_for( :tr, category.ranking ) do |contestant| %>
+          <td><%= contestant.ranking %></td>
+          <td><%= contestant.number %></td>
+          <td><%= contestant.name %></td>
+          <td style="text-align: right;"><%= contestant.scores.count %></td>
+          <td style="text-align: right;"><%= contestant.score %></td>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

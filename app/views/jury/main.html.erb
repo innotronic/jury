@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Jury</title>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <%= javascript_include_tag "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js", "https://oss.maxcdn.com/respond/1.4.2/respond.min.js" %>
+  <![endif]-->
+
+  <%= stylesheet_link_tag params[ :controller ], media: 'all' %>
+  <%= javascript_include_tag 'application', params[ :controller ] %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+  
+    <div class="page-header">
+      <%= form_tag( jury_judge_path, class: "form-inline" ) do %>
+        <%= select_tag :current_judge_id, options_from_collection_for_select( Judge.all, :id, :name, @current_judge ? @current_judge.id : nil ), include_blank: true, onchange: "this.form.submit();", class: "form-control" %>
+      <% end %>
+      <h1>Jury</h1>
+    </div>
+    
+    <div class="main">
+    
+      <div class="form">
+        <form id="score" class="form">
+        
+          <div class="form-group">
+            <label class="control-label">Teilnehmer</label>
+            <ul class="contestant_list">
+            </ul>
+          </div>
+          
+          <div class="form-group">
+            <label class="control-label">Nummer</label>
+            <%= text_field_tag :contestant_number, nil, class: "form-control" %> 
+          </div>
+          
+          <div class="form-group">
+            <label class="control-label">Name</label>
+            <%= text_field_tag :contestant_name, nil, class: "form-control" %>
+          </div>
+          
+          <div class="form-group">
+            <label class="control-label">Wertung</label>
+            <%= text_field_tag :value, 5, class: "form-control" %>
+          </div>
+          
+          <div class="form-group">
+            <%= button_tag "Speichern", class: "btn btn-primary scoreSave" %>
+          </div>
+        </form>
+        
+        <div id="status" class="alert"></div>
+      </div>
+    </div>
+    
+  </div>
+
+</body>
+</html>

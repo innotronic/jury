@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/*
+ *  Jury
+ *  
+ *  Copyright::   (c) 2016 Innotronic Ingenieurbüro GmbH
+ *  URL::         www.inno.ch
+ *  Author::      Markus Meier
+ */
+/* line 10, /Users/m2meier/cloud.inno.ch/projekt/rails/jury/app/assets/stylesheets/contestants.scss */
+tr[data-link] {
+  cursor: pointer;
+}

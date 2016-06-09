@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to new_category_path, class: 'btn btn-success' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+  <% end %>
+  <h1>Kategorien</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Code</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for( :tr, @categories ) do |category| %>
+        <td><%= category.name %></td>
+        <td><%= category.code %></td>
+        <td>
+          <%= link_to category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" do %>
+            <span class="glyphicon glyphicon-trash"></span>
+            Destroy
+          <% end %>
+          <%= link_to edit_category_path( category ), class: "btn btn-xs btn-primary" do %>
+            <span class="glyphicon glyphicon-pencil"></span>
+            Edit
+          <% end %>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,83 @@
+/*
+ *  Jury
+ *  
+ *  Copyright::   (c) 2016 Innotronic Ingenieurbüro GmbH
+ *  URL::         www.inno.ch
+ *  Author::      Markus Meier
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap-slider";
+
+
+.page-header
+{
+  form
+  {
+    float: right;
+  }
+}
+
+
+.main 
+{
+  .contestant_list
+  {
+    height: 320px;
+    margin: 0 0 20px 0;
+    padding: 0;
+    overflow: scroll;
+    position: relative;
+    
+    li
+    {
+      display: inline-block;
+      
+      width: 72px;
+      height: 72px;
+      
+      border: 1px solid black;
+      padding: 0;
+      margin: 4px;
+      
+      line-height: 70px;
+      
+      cursor: pointer;
+      
+      font-size: 1.2em;
+      
+      text-align: center;
+    }
+    
+    li.active
+    {
+      border: 2px solid black;
+      
+      background: yellow;
+    }
+  }
+  
+  .form
+  {
+  }
+}
+
+.input-group .form-control
+{
+  width: auto;
+  display: inline-block;
+  float: none;
+}
+
+.form-group .slider
+{
+  display: block;
+  width: 100%;
+  height: 4.5em;
+  
+  .tooltip
+  {
+    margin-top: -1.0em;
+  }
+}
